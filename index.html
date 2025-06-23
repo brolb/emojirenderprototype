@@ -14,19 +14,66 @@
       vertical-align: middle;
       display: inline-block;
     }
+    /* Preserve whitespace for tabular emoji text */
+    #output {
+      white-space: pre-line;
+    }
   </style>
 </head>
 <body>
   <div id="output">[Loading renderer...]</div>
 
   <script type="module">
-    // No need for twemoji-parser or emoji image rendering for plain text table
+    import { parse } from 'https://cdn.skypack.dev/twemoji-parser';
+
+    const emojiBasePath = 'emojis/';
     const text = `Smileys & Emotion\nface-smiling\n№\tCode\tEmoji\n1\tU+1F600\t😀\n2\tU+1F603\t😃\n3\tU+1F604\t😄\n4\tU+1F601\t😁\n5\tU+1F606\t😆\n6\tU+1F605\t😅\n7\tU+1F923\t🤣\n8\tU+1F602\t😂\n9\tU+1F642\t🙂\n10\tU+1F643\t🙃\n11\tU+1FAE0\t🫠\n12\tU+1F609\t😉\n13\tU+1F60A\t😊\n14\tU+1F607\t😇\nface-affection\n№\tCode\tEmoji\n15\tU+1F970\t🥰\n16\tU+1F60D\t😍\n17\tU+1F929\t🤩\n18\tU+1F618\t😘\n19\tU+1F617\t😗\n20\tU+263A\t☺\n21\tU+1F61A\t😚\n22\tU+1F619\t😙\n23\tU+1F972\t🥲\nface-tongue\n№\tCode\tEmoji\n24\tU+1F60B\t😋\n25\tU+1F61B\t😛\n26\tU+1F61C\t😜\n27\tU+1F92A\t🤪\n28\tU+1F61D\t😝\n29\tU+1F911\t🤑\nface-hand\n№\tCode\tEmoji\n30\tU+1F917\t🤗\n31\tU+1F92D\t🤭\n32\tU+1FAE2\t🫢\n33\tU+1FAE3\t🫣\n34\tU+1F92B\t🤫\n35\tU+1F914\t🤔\n36\tU+1FAE1\t🫡\nface-neutral-skeptical\n№\tCode\tEmoji\n37\tU+1F910\t🤐\n38\tU+1F928\t🤨\n39\tU+1F610\t😐\n40\tU+1F611\t😑\n41\tU+1F636\t😶\n42\tU+1FAE5\t🫥\n43\tU+1F636 U+200D U+1F32B U+FE0F\t😶‍🌫️\n44\tU+1F60F\t😏\n45\tU+1F612\t😒\n46\tU+1F644\t🙄\n47\tU+1F62C\t😬\n48\tU+1F62E U+200D U+1F4A8\t😮‍💨\n49\tU+1F925\t🤥\n50\tU+1FAE8\t🫨\n51\tU+1F642 U+200D U+2194 U+FE0F\t🙂‍↔️\n52\tU+1F642 U+200D U+2195 U+FE0F\t🙂‍↕️\nface-sleepy\n№\tCode\tEmoji\n53\tU+1F60C\t😌\n54\tU+1F614\t😔\n55\tU+1F62A\t😪\n56\tU+1F924\t🤤\n57\tU+1F634\t😴\n58\tU+1FAE9\t🫩\nface-unwell\n№\tCode\tEmoji\n59\tU+1F637\t😷\n60\tU+1F912\t🤒\n61\tU+1F915\t🤕\n62\tU+1F922\t🤢\n63\tU+1F92E\t🤮\n64\tU+1F927\t🤧\n65\tU+1F975\t🥵\n66\tU+1F976\t🥶\n67\tU+1F974\t🥴\n68\tU+1F635\t😵\n69\tU+1F635 U+200D U+1F4AB\t😵‍💫\n70\tU+1F92F\t🤯\nface-hat\n№\tCode\tEmoji\n71\tU+1F920\t🤠\n72\tU+1F973\t🥳\n73\tU+1F978\t🥸\nface-glasses\n№\tCode\tEmoji\n74\tU+1F60E\t😎\n75\tU+1F913\t🤓\n76\tU+1F9D0\t🧐\nface-concerned\n№\tCode\tEmoji\n77\tU+1F615\t😕\n78\tU+1FAE4\t🫤\n79\tU+1F61F\t😟\n80\tU+1F641\t🙁\n81\tU+2639\t☹\n82\tU+1F62E\t😮\n83\tU+1F62F\t😯\n84\tU+1F632\t😲\n85\tU+1F633\t😳\n86\tU+1F97A\t🥺\n87\tU+1F979\t🥹\n88\tU+1F626\t😦\n89\tU+1F627\t😧\n90\tU+1F628\t😨\n91\tU+1F630\t😰\n92\tU+1F625\t😥\n93\tU+1F622\t😢\n94\tU+1F62D\t😭\n95\tU+1F631\t😱\n96\tU+1F616\t😖\n97\tU+1F623\t😣\n98\tU+1F61E\t😞\n99\tU+1F613\t😓\n100\tU+1F629\t😩\n101\tU+1F62B\t😫\n102\tU+1F971\t🥱\nface-negative\n№\tCode\tEmoji\n103\tU+1F624\t😤\n104\tU+1F621\t😡\n105\tU+1F620\t😠\n106\tU+1F92C\t🤬\n107\tU+1F608\t😈\n108\tU+1F47F\t👿\n109\tU+1F480\t💀\n110\tU+2620\t☠\nface-costume\n№\tCode\tEmoji\n111\tU+1F4A9\t💩\n112\tU+1F921\t🤡\n113\tU+1F479\t👹\n114\tU+1F47A\t👺\n115\tU+1F47B\t👻\n116\tU+1F47D\t👽\n117\tU+1F47E\t👾\n118\tU+1F916\t🤖\ncat-face\n№\tCode\tEmoji\n119\tU+1F63A\t😺\n120\tU+1F638\t😸\n121\tU+1F639\t😹\n122\tU+1F63B\t😻\n123\tU+1F63C\t😼\n124\tU+1F63D\t😽\n125\tU+1F640\t🙀\n126\tU+1F63F\t😿\n127\tU+1F63E\t😾\nmonkey-face\n№\tCode\tEmoji\n128\tU+1F648\t🙈\n129\tU+1F649\t🙉\n130\tU+1F64A\t🙊\nheart\n№\tCode\tEmoji\n131\tU+1F48C\t💌\n132\tU+1F498\t💘\n133\tU+1F49D\t💝\n134\tU+1F496\t💖\n135\tU+1F497\t💗\n136\tU+1F493\t💓\n137\tU+1F49E\t💞\n138\tU+1F495\t💕\n139\tU+1F49F\t💟\n140\tU+2763\t❣\n141\tU+1F494\t💔\n142\tU+2764 U+FE0F U+200D U+1F525\t❤️‍🔥\n143\tU+2764 U+FE0F U+200D U+1FA79\t❤️‍🩹\n144\tU+2764\t❤\n145\tU+1FA77\t🩷\n146\tU+1F9E1\t🧡\n147\tU+1F49B\t💛\n148\tU+1F49A\t💚\n149\tU+1F499\t💙\n150\tU+1FA75\t🩵\n151\tU+1F49C\t💜\n152\tU+1F90E\t🤎\n153\tU+1F5A4\t🖤\n154\tU+1FA76\t🩶\n155\tU+1F90D\t🤍\nemotion\n№\tCode\tEmoji\n156\tU+1F48B\t💋\n157\tU+1F4AF\t💯\n158\tU+1F4A2\t💢\n159\tU+1F4A5\t💥\n160\tU+1F4AB\t💫\n161\tU+1F4A6\t💦\n162\tU+1F4A8\t💨\n163\tU+1F573\t🕳\n164\tU+1F4AC\t💬\n165\tU+1F441 U+FE0F U+200D U+1F5E8 U+FE0F\t👁️‍🗨️\n166\tU+1F5E8\t🗨\n167\tU+1F5EF\t🗯\n168\tU+1F4AD\t💭\n169\tU+1F4A4\t💤`;
 
-    // Replace \n with <br> and \t with spaces for HTML display
-    const html = text.replace(/\n/g, '<br>').replace(/\t/g, '    ');
+    function emojiToFilename(emoji) {
+      return Array.from(emoji)
+        .map(c => c.codePointAt(0).toString(16))
+        .join('-') + '.png';
+    }
+
+    function renderTextWithEmojis(text) {
+      const container = document.createElement('span');
+      const emojiTokens = parse(text);
+      let currentIndex = 0;
+
+      for (const token of emojiTokens) {
+        if (token.indices[0] > currentIndex) {
+          const beforeText = text.slice(currentIndex, token.indices[0]);
+          // Replace \n with <br> and \t with spaces for tabular display
+          const html = beforeText.replace(/\n/g, '<br>').replace(/\t/g, '    ');
+          const temp = document.createElement('span');
+          temp.innerHTML = html;
+          container.appendChild(temp);
+        }
+
+        const filename = emojiToFilename(token.text);
+        const img = document.createElement('img');
+        img.className = 'emoji';
+        img.src = emojiBasePath + filename;
+        img.alt = token.text;
+        container.appendChild(img);
+
+        currentIndex = token.indices[1];
+      }
+
+      if (currentIndex < text.length) {
+        const afterText = text.slice(currentIndex);
+        const html = afterText.replace(/\n/g, '<br>').replace(/\t/g, '    ');
+        const temp = document.createElement('span');
+        temp.innerHTML = html;
+        container.appendChild(temp);
+      }
+
+      return container;
+    }
+
     const output = document.getElementById('output');
-    output.innerHTML = html;
+    output.textContent = '';
+    output.appendChild(renderTextWithEmojis(text));
   </script>
 </body>
 </html>
