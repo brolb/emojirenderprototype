@@ -24,7 +24,6 @@
 
     const text = "Hello 👩‍🚀! I love 🇺🇸 and also 😀 and 🧑‍🤝‍🧑. My emotions are:😀😃😄😁😆😅. Some funny emojis are 🤣 and 😂. Here's some more emojis:🙂🙃🫠😉😊😇\n\n try your own emojis:";
     const emojiBasePath = 'emojis/';
-    <input type="text" id="emojiInput" placeholder="🤑" />
 
     function emojiToFilename(emoji) {
       return Array.from(emoji)
@@ -63,5 +62,6 @@
     document.getElementById('output').textContent = ''; // clear "[Loading renderer...]"
     document.getElementById('output').appendChild(renderTextWithEmojis(text));
   </script>
+  <input type="text" id="emojiInput" placeholder="Type your message here..." />
 </body>
 </html>
