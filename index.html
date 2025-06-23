@@ -20,47 +20,12 @@
   <div id="output">[Loading renderer...]</div>
 
   <script type="module">
-    import { parse } from 'https://cdn.skypack.dev/twemoji-parser';
+    // Commented out: import { parse } from 'https://cdn.skypack.dev/twemoji-parser';
 
-    const text = "Smileys & Emotion<br>face-smiling<br>№	Code	Emoji<br>1	U+1F600	😀<br>2	U+1F603	😃<br>3	U+1F604	😄<br>4	U+1F601	😁<br>5	U+1F606	😆<br>6	U+1F605	😅<br>7	U+1F923	🤣<br>8	U+1F602	😂<br>9	U+1F642	🙂<br>10	U+1F643	🙃<br>11	U+1FAE0	🫠<br>12	U+1F609	😉<br>13	U+1F60A	😊<br>14	U+1F607	😇<br>face-affection<br>№	Code	Emoji<br>15	U+1F970	🥰<br>16	U+1F60D	😍<br>17	U+1F929	🤩<br>18	U+1F618	😘<br>19	U+1F617	😗<br>20	U+263A	☺<br>21	U+1F61A	😚<br>22	U+1F619	😙<br>23	U+1F972	🥲<br>face-tongue<br>№	Code	Emoji<br>24	U+1F60B	😋<br>25	U+1F61B	😛<br>26	U+1F61C	😜<br>27	U+1F92A	🤪<br>28	U+1F61D	😝<br>29	U+1F911	🤑<br>face-hand<br>№	Code	Emoji<br>30	U+1F917	🤗<br>31	U+1F92D	🤭<br>32	U+1FAE2	🫢<br>33	U+1FAE3	🫣<br>34	U+1F92B	🤫<br>35	U+1F914	🤔<br>36	U+1FAE1	🫡<br>face-neutral-skeptical<br>№	Code	Emoji<br>37	U+1F910	🤐<br>38	U+1F928	🤨<br>39	U+1F610	😐<br>40	U+1F611	😑<br>41	U+1F636	😶<br>42	U+1FAE5	🫥<br>43	U+1F636 U+200D U+1F32B U+FE0F	😶‍🌫️<br>44	U+1F60F	😏<br>45	U+1F612	😒<br>46	U+1F644	🙄<br>47	U+1F62C	😬<br>48	U+1F62E U+200D U+1F4A8	😮‍💨<br>49	U+1F925	🤥<br>50	U+1FAE8	🫨<br>51	U+1F642 U+200D U+2194 U+FE0F	🙂‍↔️<br>52	U+1F642 U+200D U+2195 U+FE0F	🙂‍↕️<br>face-sleepy<br>№	Code	Emoji<br>53	U+1F60C	😌<br>54	U+1F614	😔<br>55	U+1F62A	😪<br>56	U+1F924	🤤<br>57	U+1F634	😴<br>58	U+1FAE9	🫩<br>face-unwell<br>№	Code	Emoji<br>59	U+1F637	😷<br>60	U+1F912	🤒<br>61	U+1F915	🤕<br>62	U+1F922	🤢<br>63	U+1F92E	🤮<br>64	U+1F927	🤧<br>65	U+1F975	🥵<br>66	U+1F976	🥶<br>67	U+1F974	🥴<br>68	U+1F635	😵<br>69	U+1F635 U+200D U+1F4AB	😵‍💫<br>70	U+1F92F	🤯<br>face-hat<br>№	Code	Emoji<br>71	U+1F920	🤠<br>72	U+1F973	🥳<br>73	U+1F978	🥸<br>face-glasses<br>№	Code	Emoji<br>74	U+1F60E	😎<br>75	U+1F913	🤓<br>76	U+1F9D0	🧐<br>face-concerned<br>№	Code	Emoji<br>77	U+1F615	😕<br>78	U+1FAE4	🫤<br>79	U+1F61F	😟<br>80	U+1F641	🙁<br>81	U+2639	☹<br>82	U+1F62E	😮<br>83	U+1F62F	😯<br>84	U+1F632	😲<br>85	U+1F633	😳<br>86	U+1F97A	🥺<br>87	U+1F979	🥹<br>88	U+1F626	😦<br>89	U+1F627	😧<br>90	U+1F628	😨<br>91	U+1F630	😰<br>92	U+1F625	😥<br>93	U+1F622	😢<br>94	U+1F62D	😭<br>95	U+1F631	😱<br>96	U+1F616	😖<br>97	U+1F623	😣<br>98	U+1F61E	😞<br>99	U+1F613	😓<br>100	U+1F629	😩<br>101	U+1F62B	😫<br>102	U+1F971	🥱<br>face-negative<br>№	Code	Emoji<br>103	U+1F624	😤<br>104	U+1F621	😡<br>105	U+1F620	😠<br>106	U+1F92C	🤬<br>107	U+1F608	😈<br>108	U+1F47F	👿<br>109	U+1F480	💀<br>110	U+2620	☠<br>face-costume<br>№	Code	Emoji<br>111	U+1F4A9	💩<br>112	U+1F921	🤡<br>113	U+1F479	👹<br>114	U+1F47A	👺<br>115	U+1F47B	👻<br>116	U+1F47D	👽<br>117	U+1F47E	👾<br>118	U+1F916	🤖<br>cat-face<br>№	Code	Emoji<br>119	U+1F63A	😺<br>120	U+1F638	😸<br>121	U+1F639	😹<br>122	U+1F63B	😻<br>123	U+1F63C	😼<br>124	U+1F63D	😽<br>125	U+1F640	🙀<br>126	U+1F63F	😿<br>127	U+1F63E	😾<br>monkey-face<br>№	Code	Emoji<br>128	U+1F648	🙈<br>129	U+1F649	🙉<br>130	U+1F64A	🙊<br>heart<br>№	Code	Emoji<br>131	U+1F48C	💌<br>132	U+1F498	💘<br>133	U+1F49D	💝<br>134	U+1F496	💖<br>135	U+1F497	💗<br>136	U+1F493	💓<br>137	U+1F49E	💞<br>138	U+1F495	💕<br>139	U+1F49F	💟<br>140	U+2763	❣<br>141	U+1F494	💔<br>142	U+2764 U+FE0F U+200D U+1F525	❤️‍🔥<br>143	U+2764 U+FE0F U+200D U+1FA79	❤️‍🩹<br>144	U+2764	❤<br>145	U+1FA77	🩷<br>146	U+1F9E1	🧡<br>147	U+1F49B	💛<br>148	U+1F49A	💚<br>149	U+1F499	💙<br>150	U+1FA75	🩵<br>151	U+1F49C	💜<br>152	U+1F90E	🤎<br>153	U+1F5A4	🖤<br>154	U+1FA76	🩶<br>155	U+1F90D	🤍<br>emotion<br>№	Code	Emoji<br>156	U+1F48B	💋<br>157	U+1F4AF	💯<br>158	U+1F4A2	💢<br>159	U+1F4A5	💥<br>160	U+1F4AB	💫<br>161	U+1F4A6	💦<br>162	U+1F4A8	💨<br>163	U+1F573	🕳<br>164	U+1F4AC	💬<br>165	U+1F441 U+FE0F U+200D U+1F5E8 U+FE0F	👁️‍🗨️<br>166	U+1F5E8	🗨<br>167	U+1F5EF	🗯<br>168	U+1F4AD	💭<br>169	U+1F4A4	💤<br>";
-    const emojiBasePath = 'emojis/';
+    const text = "Smileys & Emotion<br>face-smiling<br>№\tCode\tEmoji<br>1\tU+1F600\t😀<br>2\tU+1F603\t😃<br>3\tU+1F604\t😄<br>4\tU+1F601\t😁<br>5\tU+1F606\t😆<br>6\tU+1F605\t😅<br>7\tU+1F923\t🤣<br>8\tU+1F602\t😂<br>9\tU+1F642\t🙂<br>10\tU+1F643\t🙃<br>11\tU+1FAE0\t🫠<br>12\tU+1F609\t😉<br>13\tU+1F60A\t😊<br>14\tU+1F607\t😇<br>face-affection<br>№\tCode\tEmoji<br>15\tU+1F970\t🥰<br>16\tU+1F60D\t😍<br>17\tU+1F929\t🤩<br>18\tU+1F618\t😘<br>19\tU+1F617\t😗<br>20\tU+263A\t☺<br>21\tU+1F61A\t😚<br>22\tU+1F619\t😙<br>23\tU+1F972\t🥲<br>face-tongue<br>№\tCode\tEmoji<br>24\tU+1F60B\t😋<br>25\tU+1F61B\t😛<br>26\tU+1F61C\t😜<br>27\tU+1F92A\t🤪<br>28\tU+1F61D\t😝<br>29\tU+1F911\t🤑<br>face-hand<br>№\tCode\tEmoji<br>30\tU+1F917\t🤗<br>31\tU+1F92D\t🤭<br>32\tU+1FAE2\t🫢<br>33\tU+1FAE3\t🫣<br>34\tU+1F92B\t🤫<br>35\tU+1F914\t🤔<br>36\tU+1FAE1\t🫡<br>face-neutral-skeptical<br>№\tCode\tEmoji<br>37\tU+1F910\t🤐<br>38\tU+1F928\t🤨<br>39\tU+1F610\t😐<br>40\tU+1F611\t😑<br>41\tU+1F636\t😶<br>42\tU+1FAE5\t🫥<br>43\tU+1F636 U+200D U+1F32B U+FE0F\t😶‍🌫️<br>44\tU+1F60F\t😏<br>45\tU+1F612\t😒<br>46\tU+1F644\t🙄<br>47\tU+1F62C\t😬<br>48\tU+1F62E U+200D U+1F4A8\t😮‍💨<br>49\tU+1F925\t🤥<br>50\tU+1FAE8\t🫨<br>51\tU+1F642 U+200D U+2194 U+FE0F\t🙂‍↔️<br>52\tU+1F642 U+200D U+2195 U+FE0F\t🙂‍↕️<br>face-sleepy<br>№\tCode\tEmoji<br>53\tU+1F60C\t😌<br>54\tU+1F614\t😔<br>55\tU+1F62A\t😪<br>56\tU+1F924\t🤤<br>57\tU+1F634\t😴<br>58\tU+1FAE9\t🫩<br>face-unwell<br>№\tCode\tEmoji<br>59\tU+1F637\t😷<br>60\tU+1F912\t🤒<br>61\tU+1F915\t🤕<br>62\tU+1F922\t🤢<br>63\tU+1F92E\t🤮<br>64\tU+1F927\t🤧<br>65\tU+1F975\t🥵<br>66\tU+1F976\t🥶<br>67\tU+1F974\t🥴<br>68\tU+1F635\t😵<br>69\tU+1F635 U+200D U+1F4AB\t😵‍💫<br>70\tU+1F92F\t🤯<br>face-hat<br>№\tCode\tEmoji<br>71\tU+1F920\t🤠<br>72\tU+1F973\t🥳<br>73\tU+1F978\t🥸<br>face-glasses<br>№\tCode\tEmoji<br>74\tU+1F60E\t😎<br>75\tU+1F913\t🤓<br>76\tU+1F9D0\t🧐<br>face-concerned<br>№\tCode\tEmoji<br>77\tU+1F615\t😕<br>78\tU+1FAE4\t🫤<br>79\tU+1F61F\t😟<br>80\tU+1F641\t🙁<br>81\tU+2639\t☹<br>82\tU+1F62E\t😮<br>83\tU+1F62F\t😯<br>84\tU+1F632\t😲<br>85\tU+1F633\t😳<br>86\tU+1F97A\t🥺<br>87\tU+1F979\t🥹<br>88\tU+1F626\t😦<br>89\tU+1F627\t😧<br>90\tU+1F628\t😨<br>91\tU+1F630\t😰<br>92\tU+1F625\t😥<br>93\tU+1F622\t😢<br>94\tU+1F62D\t😭<br>95\tU+1F631\t😱<br>96\tU+1F616\t😖<br>97\tU+1F623\t😣<br>98\tU+1F61E\t😞<br>99\tU+1F613\t😓<br>100\tU+1F629\t😩<br>101\tU+1F62B\t😫<br>102\tU+1F971\t🥱<br>face-negative<br>№\tCode\tEmoji<br>103\tU+1F624\t😤<br>104\tU+1F621\t😡<br>105\tU+1F620\t😠<br>106\tU+1F92C\t🤬<br>107\tU+1F608\t😈<br>108\tU+1F47F\t👿<br>109\tU+1F480\t💀<br>110\tU+2620\t☠<br>face-costume<br>№\tCode\tEmoji<br>111\tU+1F4A9\t💩<br>112\tU+1F921\t🤡<br>113\tU+1F479\t👹<br>114\tU+1F47A\t👺<br>115\tU+1F47B\t👻<br>116\tU+1F47D\t👽<br>117\tU+1F47E\t👾<br>118\tU+1F916\t🤖<br>cat-face<br>№\tCode\tEmoji<br>119\tU+1F63A\t😺<br>120\tU+1F638\t😸<br>121\tU+1F639\t😹<br>122\tU+1F63B\t😻<br>123\tU+1F63C\t😼<br>124\tU+1F63D\t😽<br>125\tU+1F640\t🙀<br>126\tU+1F63F\t😿<br>127\tU+1F63E\t😾<br>monkey-face<br>№\tCode\tEmoji<br>128\tU+1F648\t🙈<br>129\tU+1F649\t🙉<br>130\tU+1F64A\t🙊<br>heart<br>№\tCode\tEmoji<br>131\tU+1F48C\t💌<br>132\tU+1F498\t💘<br>133\tU+1F49D\t💝<br>134\tU+1F496\t💖<br>135\tU+1F497\t💗<br>136\tU+1F493\t💓<br>137\tU+1F49E\t💞<br>138\tU+1F495\t💕<br>139\tU+1F49F\t💟<br>140\tU+2763\t❣<br>141\tU+1F494\t💔<br>142\tU+2764 U+FE0F U+200D U+1F525\t❤️‍🔥<br>143\tU+2764 U+FE0F U+200D U+1FA79\t❤️‍🩹<br>144\tU+2764\t❤<br>145\tU+1FA77\t🩷<br>146\tU+1F9E1\t🧡<br>147\tU+1F49B\t💛<br>148\tU+1F49A\t💚<br>149\tU+1F499\t💙<br>150\tU+1FA75\t🩵<br>151\tU+1F49C\t💜<br>152\tU+1F90E\t🤎<br>153\tU+1F5A4\t🖤<br>154\tU+1FA76\t🩶<br>155\tU+1F90D\t🤍<br>emotion<br>№\tCode\tEmoji<br>156\tU+1F48B\t💋<br>157\tU+1F4AF\t💯<br>158\tU+1F4A2\t💢<br>159\tU+1F4A5\t💥<br>160\tU+1F4AB\t💫<br>161\tU+1F4A6\t💦<br>162\tU+1F4A8\t💨<br>163\tU+1F573\t🕳<br>164\tU+1F4AC\t💬<br>165\tU+1F441 U+FE0F U+200D U+1F5E8 U+FE0F\t👁️‍🗨️<br>166\tU+1F5E8\t🗨<br>167\tU+1F5EF\t🗯<br>168\tU+1F4AD\t💭<br>169\tU+1F4A4\t💤<br>";
 
-    function emojiToFilename(emoji) {
-      return Array.from(emoji)
-        .map(c => c.codePointAt(0).toString(16))
-        .join('-') + '.png';
-    }
-
-    function renderTextWithEmojis(text) {
-      const container = document.createElement('span');
-      const emojiTokens = parse(text);
-      let currentIndex = 0;
-
-      for (const token of emojiTokens) {
-        if (token.indices[0] > currentIndex) {
-          const beforeText = text.slice(currentIndex, token.indices[0]);
-          container.appendChild(document.createTextNode(beforeText));
-        }
-
-        const filename = emojiToFilename(token.text);
-        const img = document.createElement('img');
-        img.className = 'emoji';
-        img.src = emojiBasePath + filename;
-        img.alt = token.text;
-        container.appendChild(img);
-
-        currentIndex = token.indices[1];
-      }
-
-      if (currentIndex < text.length) {
-        container.appendChild(document.createTextNode(text.slice(currentIndex)));
-      }
-
-      return container;
-    }
-
-    document.getElementById('output').textContent = ''; // clear "[Loading renderer...]"
-    document.getElementById('output').appendChild(renderTextWithEmojis(text));
+    // Set the output div's HTML directly to render <br> as line breaks
+    document.getElementById('output').innerHTML = text;
   </script>
 </body>
 </html>
