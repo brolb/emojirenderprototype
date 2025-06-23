@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Custom Emoji Renderer</title>
+  <title>Emoji Renderer Test</title>
   <style>
-    body { font-family: sans-serif; font-size: 20px; }
+    body {
+      font-family: sans-serif;
+      font-size: 20px;
+    }
     img.emoji {
       width: 1em;
       height: 1em;
@@ -14,8 +17,50 @@
   </style>
 </head>
 <body>
-  <div id="output"></div>
+  <div id="output">[Loading renderer...]</div>
 
-  <script type="module" src="emoji-renderer.js"></script>
+  <script type="module">
+    import { parse } from 'https://cdn.skypack.dev/twemoji-parser';
+
+    const text = "Hello 👩‍🚀! I love 🇺🇸 and also 😀 and 🧑‍🤝‍🧑.";
+    const emojiBasePath = 'emojis/';
+
+    function emojiToFilename(emoji) {
+      return Array.from(emoji)
+        .map(c => c.codePointAt(0).toString(16))
+        .join('-') + '.png';
+    }
+
+    function renderTextWithEmojis(text) {
+      const container = document.createElement('span');
+      const emojiTokens = parse(text);
+      let currentIndex = 0;
+
+      for (const token of emojiTokens) {
+        if (token.indices[0] > currentIndex) {
+          const beforeText = text.slice(currentIndex, token.indices[0]);
+          container.appendChild(document.createTextNode(beforeText));
+        }
+
+        const filename = emojiToFilename(token.text);
+        const img = document.createElement('img');
+        img.className = 'emoji';
+        img.src = emojiBasePath + filename;
+        img.alt = token.text;
+        container.appendChild(img);
+
+        currentIndex = token.indices[1];
+      }
+
+      if (currentIndex < text.length) {
+        container.appendChild(document.createTextNode(text.slice(currentIndex)));
+      }
+
+      return container;
+    }
+
+    document.getElementById('output').textContent = ''; // clear "[Loading renderer...]"
+    document.getElementById('output').appendChild(renderTextWithEmojis(text));
+  </script>
 </body>
 </html>
