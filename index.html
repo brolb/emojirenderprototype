@@ -22,8 +22,9 @@
   <script type="module">
     import { parse } from 'https://cdn.skypack.dev/twemoji-parser';
 
-    const text = "Hello 👩‍🚀! I love 🇺🇸 and also 😀 and 🧑‍🤝‍🧑. My emotions are:😀😃😄😁😆😅. Some funny emojis are 🤣 and 😂. Here's some more emojis:🙂🙃🫠😉😊😇";
+    const text = "Hello 👩‍🚀! I love 🇺🇸 and also 😀 and 🧑‍🤝‍🧑. My emotions are:😀😃😄😁😆😅. Some funny emojis are 🤣 and 😂. Here's some more emojis:🙂🙃🫠😉😊😇\n\n try your own emojis:";
     const emojiBasePath = 'emojis/';
+    <input type="text" id="emojiInput" placeholder="🤑" />
 
     function emojiToFilename(emoji) {
       return Array.from(emoji)
